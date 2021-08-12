@@ -2,6 +2,9 @@
 
 from pwn import *
 
+with open("/home/pood0g/.pwn.conf", "wt") as conf:
+    conf.write("[update]\ninterval=never\n")
+
 eip = 72
 
 
