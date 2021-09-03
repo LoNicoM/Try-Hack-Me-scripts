@@ -62,12 +62,14 @@ class Cracker:
     def set_hasher(self):
         return eval(f"{args.hashtype}")
 
-print(banner)
-parser = ArgumentParser()
-parser.add_argument("hash", help="The hash to be cracked.")
-parser.add_argument("wordlist", help="A list containing passwords, one per line")
-parser.add_argument("--hashtype", metavar="hashtype", help="The hash type",
-                        choices=["md5", "sha1", "sha256"], default="md5")
-args = parser.parse_args()
+      
+if __name__ == "__main__":
+    print(banner)
+    parser = ArgumentParser()
+    parser.add_argument("hash", help="The hash to be cracked.")
+    parser.add_argument("wordlist", help="A list containing passwords, one per line")
+    parser.add_argument("--hashtype", metavar="hashtype", help="The hash type",
+                            choices=["md5", "sha1", "sha256"], default="md5")
+    args = parser.parse_args()
 
-Cracker(args).run()
+    Cracker(args).run()
